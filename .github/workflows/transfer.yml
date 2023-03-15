@@ -25,7 +25,7 @@ jobs:
         env:
           API_TOKEN_GITHUB: ${{ secrets.TOKEN }}
         with:
-          source_file: 'README.md'
+          source_file: 'test/abc.txt'
           destination_repo: 'codeweb05/repo2'
           destination_folder: 'test'
           user_email: 'sj40863@email.com'
