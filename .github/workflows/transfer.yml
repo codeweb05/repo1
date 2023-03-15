@@ -17,4 +17,5 @@ jobs:
           destination-repository: "repo2"
           destination-directory: "projects"
           commit-email: "sj40863@gmail.com"
+          destination-branch: "main"
 
