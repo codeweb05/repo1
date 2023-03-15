@@ -19,5 +19,5 @@ jobs:
           destination_folder: '.'
           user_email: 'sj40863@email.com'
           user_name: 'saurabh'
-          commit_message: 'A custom message for the commit'
+          commit_message: ${{ github.event.head_commit.message }}
 
