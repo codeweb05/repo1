@@ -7,15 +7,17 @@ jobs:
   transfer-file:
     runs-on: ubuntu-latest
     steps:
-      - name: Push generated webpage to another repository
-        uses: nkoppel/push-files-to-another-repository@v1.1.1
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Pushes test file
+        uses: dmnemec/copy_file_to_another_repo_action@main
         env:
           API_TOKEN_GITHUB: ${{ secrets.TOKEN }}
         with:
-          source-files: "README.md"
-          destination-username: "codeweb05"
-          destination-repository: "repo2"
-          destination-directory: "projects"
-          commit-email: "sj40863@gmail.com"
-          destination-branch: "main"
+          source_file: 'README.md'
+          destination_repo: 'codeweb05/repo2'
+          destination_folder: 'test-dir'
+          user_email: 'sj40863@email.com'
+          user_name: 'saurabh'
+          commit_message: 'A custom message for the commit'
 
