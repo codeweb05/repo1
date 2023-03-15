@@ -13,8 +13,8 @@ jobs:
           API_TOKEN_GITHUB: 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
         with:
           source-files: "README.md"
-          destination-username: "saurabh"
-          destination-repository: "codeweb05/repo2"
+          destination-username: "codeweb05"
+          destination-repository: "repo2"
           destination-directory: "projects"
           commit-email: "sj40863@gmail.com"
 
