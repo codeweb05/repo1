@@ -10,7 +10,7 @@ jobs:
       - name: Push generated webpage to another repository
         uses: nkoppel/push-files-to-another-repository@v1.1.1
         env:
-          API_TOKEN_GITHUB: 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
+          API_TOKEN_GITHUB: ${{ secrets.TOKEN }}
         with:
           source-files: "README.md"
           destination-username: "codeweb05"
