@@ -19,7 +19,7 @@ jobs:
           source_file: 'README.md'
           destination_repo: 'codeweb05/repo2'
           destination_folder: '.'
-          input_rename: 'index1.md'
+          rename: 'index1.md'
           user_email: 'sj40863@email.com'
           user_name: 'saurabh'
           commit_message: ${{ github.event.head_commit.message }}
