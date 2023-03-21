@@ -12,11 +12,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
       - name: Pushes test file
-        uses: dmnemec/copy_file_to_another_repo_action@v1.1.1
+        uses: dmnemec/copy_file_to_another_repo_action@main
         env:
           API_TOKEN_GITHUB: ${{ secrets.TOKEN }}
         with:
           source_file: 'README.md'
+          rename: 'index1.md'
           destination_repo: 'codeweb05/repo3'
           user_email: 'sj40863@email.com'
           user_name: 'saurabh1'
