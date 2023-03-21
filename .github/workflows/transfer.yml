@@ -18,7 +18,7 @@ jobs:
         with:
           source_file: 'README.md'
           destination_repo: 'codeweb05/repo2'
-          destination_folder: '.'
+          destination_folder: 'index.md'
           user_email: 'sj40863@email.com'
           user_name: 'saurabh'
           commit_message: ${{ github.event.head_commit.message }}
