@@ -17,7 +17,7 @@ jobs:
           API_TOKEN_GITHUB: ${{ secrets.TOKEN }}
         with:
           source_file: 'README.md'
-          destination_repo: 'codeweb05/repo2'
+          destination_repo: 'codeweb05/repo3'
           rename: 'index1.md'
           user_email: 'sj40863@email.com'
           user_name: 'saurabh1'
