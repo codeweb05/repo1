@@ -20,6 +20,6 @@ jobs:
           destination_repo: 'codeweb05/repo2'
           rename: 'index1.md'
           user_email: 'sj40863@email.com'
-          user_name: 'saurabh'
-          commit_message: ${{ github.event.head_commit.message }}
+          user_name: 'saurabh1'
+
 
