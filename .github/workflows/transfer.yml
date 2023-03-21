@@ -3,6 +3,8 @@ on:
   push:
     branches:
       - main
+    paths:
+      - 'README.md'
 jobs:
   transfer-file:
     runs-on: ubuntu-latest
@@ -17,17 +19,6 @@ jobs:
           source_file: 'README.md'
           destination_repo: 'codeweb05/repo2'
           destination_folder: '.'
-          user_email: 'sj40863@email.com'
-          user_name: 'saurabh'
-          commit_message: ${{ github.event.head_commit.message }}
-      - name: Pushes test file2
-        uses: dmnemec/copy_file_to_another_repo_action@v1.1.1
-        env:
-          API_TOKEN_GITHUB: ${{ secrets.TOKEN }}
-        with:
-          source_file: 'test/abc.txt'
-          destination_repo: 'codeweb05/repo2'
-          destination_folder: 'test'
           user_email: 'sj40863@email.com'
           user_name: 'saurabh'
           commit_message: ${{ github.event.head_commit.message }}
