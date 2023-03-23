@@ -3,8 +3,6 @@ on:
   push:
     branches:
       - main
-    paths:
-      - 'README.md'
 jobs:
   transfer-file:
     runs-on: ubuntu-latest
@@ -14,12 +12,23 @@ jobs:
       - name: Pushes test file
         uses: dmnemec/copy_file_to_another_repo_action@main
         env:
-          API_TOKEN_GITHUB: ${{ secrets.TOKEN }}
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         with:
           source_file: 'README.md'
           rename: 'index1.md'
           destination_repo: 'codeweb05/repo3'
           user_email: 'sj40863@email.com'
           user_name: 'saurabh1'
+      - name: Pushes test folder
+        uses: datalbry/copy_folder_to_another_repo_action@1.0.0
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+        with:
+          source_folder: 'test'
+          destination_repo: 'codeweb05/repo3'
+          destination_folder: 'test-dir'
+          user_email: 'sj40863@gmail.com'
+          user_name: 'codeweb05'
+          commit_msg: ${{ github.event.head_commit.message }}
 
 
