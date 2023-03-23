@@ -19,16 +19,16 @@ jobs:
           destination_repo: 'codeweb05/repo3'
           user_email: 'sj40863@email.com'
           user_name: 'saurabh1'
-      - name: Pushes test folder
-        uses: datalbry/copy_folder_to_another_repo_action@1.0.0
+      - name: Pushes to another repository
+        uses: cpina/github-action-push-to-another-repository@main
         env:
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         with:
-          source_folder: 'test'
-          destination_repo: 'codeweb05/repo3'
-          destination_folder: 'test-dir'
-          user_email: 'sj40863@gmail.com'
-          user_name: 'codeweb05'
-          commit_msg: ${{ github.event.head_commit.message }}
+          source-directory: 'test'
+          destination-github-username: 'codeweb05'
+          destination-repository-name: 'repo3'
+          target-directory: 'test1'
+          user-email: carles3@pina.cat
+          target-branch: main
 
 
