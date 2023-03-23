@@ -27,7 +27,7 @@ jobs:
           source-directory: 'test'
           destination-github-username: 'codeweb05'
           destination-repository-name: 'repo3'
-          target-directory: 'test1'
+          target-directory: 'test1/test2'
           user-email: carles3@pina.cat
           target-branch: main
 
