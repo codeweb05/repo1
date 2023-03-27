@@ -49,7 +49,7 @@ jobs:
           API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
         with:
           source_file: 'README.md'
-          destination_repo: 'sourcefuse/arc-docs'
+          destination_repo: 'codeweb05/repo2'
           destination_folder: 'docs/arc-api-docs'
           rename: 'index.md'
           user_email: 'github-actions@github.com'
