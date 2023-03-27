@@ -30,3 +30,28 @@ jobs:
         run: npm run export-typedocs
       - name: Deploy 🚀
         run: mkdocs gh-deploy --force
+      - name: Pushes to another repository
+        uses: cpina/github-action-push-to-another-repository@main
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+        with:
+          source-directory: 'docs'
+          destination-github-username: 'codeweb05'
+          destination-repository-name: 'repo2'
+          target-directory: 'docs/arc-api-docs'
+          user-email: 'github-actions@github.com'
+          user-name: ${{ github.actor }}
+          target-branch: main
+          commit-message: ${{ github.event.head_commit.message }}
+      - name: Pushes Readme file
+        uses: dmnemec/copy_file_to_another_repo_action@main
+        env:
+          API_TOKEN_GITHUB: ${{ secrets.API_TOKEN_GITHUB }}
+        with:
+          source_file: 'README.md'
+          destination_repo: 'sourcefuse/arc-docs'
+          destination_folder: 'docs/arc-api-docs'
+          rename: 'index.md'
+          user_email: 'github-actions@github.com'
+          user_name: ${{ github.actor }}
+          commit_message: ${{ github.event.head_commit.message }}
