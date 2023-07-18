@@ -1,330 +1,771 @@
-# Sourceloop
+```mermaid
+erDiagram
 
-[![LoopBack](<https://github.com/strongloop/loopback-next/raw/master/docs/site/imgs/branding/Powered-by-LoopBack-Badge-(blue)-@2x.png>)](http://loopback.io/)
+        activity_logs_type {
+            Control Control
+Alert Alert
+Notification Notification
+Update Update
+Access Access
+PowerUp PowerUp
+        }
+    
 
-[![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lerna.js.org/)
-[![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 
-![@loopback/core](https://img.shields.io/github/package-json/dependency-version/sourcefuse/loopback4-microservice-catalog/@loopback/core?filename=packages%2Fcore%2Fpackage.json)
+        company_contacts_type {
+            technical technical
+account account
+billing billing
+        }
+    
 
-[![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=sourcefuse_loopback4-microservice-catalog)](https://sonarcloud.io/summary/new_code?id=sourcefuse_loopback4-microservice-catalog)
 
-<!-- docs-index-start -->
+        users_sites_permissions_permission_type {
+            site site
+route route
+area area
+        }
+    
 
-The `Sourceloop` is a collection of pre-built microservices that aim to reduce time to market for enterprise projects. Large enterprises usually face a similar set of challenges when developing cloud native platforms as part of digital transformation efforts or the creation of new products. The services are implemented as [LoopBack Extensions](https://loopback.io/doc/en/lb4/Extending-LoopBack-4.html), allowing you to install them into existing LoopBack applications or use the [LoopBack Command-line interface](https://loopback.io/doc/en/lb4/Command-line-interface.html) to generate standalone services. Our recommended approach is to deploy these services as standalone micro-services in Docker.
 
-The current catalog consists of the following services:
+        activity_logs_user_type {
+            User User
+System System
+        }
+    
 
-- [audit-service](services/audit-service)
-- [authentication-service](services/authentication-service)
-- [in-mail-service](services/in-mail-service)
-- [notification-service](services/notification-service)
-- [scheduler-service](services/scheduler-service)
-- [video-conferencing-service](services/video-conferencing-service)
-- [bpmn-service](services/bpmn-service)
-- [chat-service](services/chat-service)
-- [feature-toggle-service](services/feature-toggle-service)
-- [payment-service](services/payment-service)
-- [search-service](services/search-service)
 
-This repository also contains a set of example projects in the [sandbox](sandbox) directory that can be run from `docker-compose`.
+        device_link_statuses_operation {
+            read read
+write write
+delayed_write delayed-write
+        }
+    
 
-- [audit-ms-example](https://github.com/sourcefuse/loopback4-microservice-catalog/blob/master/sandbox/audit-ms-example)
-- [auth-multitenant-example](https://github.com/sourcefuse/loopback4-microservice-catalog/blob/master/sandbox/auth-multitenant-example)
-- [auth-ms-basic-example](https://github.com/sourcefuse/loopback4-microservice-catalog/blob/master/sandbox/auth-ms-basic-example)
-- [notification-socket-example](https://github.com/sourcefuse/loopback4-microservice-catalog/blob/master/sandbox/notification-socket-example)
-- [workflow-ms-example](https://github.com/sourcefuse/loopback4-microservice-catalog/blob/master/sandbox/workflow-ms-example)
-- [audit-ms-example](https://github.com/sourcefuse/loopback4-microservice-catalog/blob/master/sandbox/audit-ms-example)
-- [in-mail-example](https://github.com/sourcefuse/loopback4-microservice-catalog/blob/master/sandbox/in-mail-example)
-- [scheduler-example](https://github.com/sourcefuse/loopback4-microservice-catalog/blob/master/sandbox/scheduler-example)
-- [video-conferencing-ms-example](https://github.com/sourcefuse/loopback4-microservice-catalog/blob/master/sandbox/video-conferencing-ms-example)
-- [chat-notification-pubnub-example](https://github.com/sourcefuse/loopback4-microservice-catalog/blob/master/sandbox/chat-notification-pubnub-example)
-- [feature-toggle-example](https://github.com/sourcefuse/loopback4-microservice-catalog/blob/master/sandbox/feature-toggle-example)
-- [payment-example](https://github.com/sourcefuse/loopback4-microservice-catalog/blob/master/sandbox/payment-example)
-- [search-client-example](https://github.com/sourcefuse/loopback4-microservice-catalog/blob/master/sandbox/search-client-example)
-- [search-ms-example](https://github.com/sourcefuse/loopback4-microservice-catalog/blob/master/sandbox/search-ms-example)
-- [user-onboarding-example](https://github.com/sourcefuse/loopback4-microservice-catalog/blob/master/sandbox/user-onboarding-example)
 
-## Table of Contents
+        permissions_scope {
+            Admin Admin
+Company Company
+        }
+    
 
-- [Sourceloop](#Sourceloop)
-  - [Table of Contents](#table-of-contents)
-    - [Long Term Support](#long-term-support)
-    - [Documentation](#documentation)
-    - [Getting Started](#getting-started)
-    - [Production Deployment](#production-deployment)
-    - [Related Projects](#related-projects)
-    - [Feedback](#feedback)
-    - [Contributing](#contributing)
-    - [Code of Conduct](#code-of-conduct)
-    - [License](#license)
 
-### Long Term Support
+        alert_logs_action {
+            open open
+acknowledged acknowledged
+completed completed
+        }
+    
 
-TODO: Establish LTS policy or document here that the catalog is still in development and has not reached an LTS release yet.
 
-| Version | Status | Published | EOL |
-| ------- | ------ | --------- | --- |
-|         |        |           |     |
+        communication_feeds_reason {
+            MD MD
+PI PI
+        }
+    
 
-### Documentation
 
-- [LoopBack| LoopBack Documentation](https://loopback.io/doc/en/lb4/)
-- [Extending LoopBack | LoopBack Documentation](https://loopback.io/doc/en/lb4/Extending-LoopBack-4.html)
+        email_templates_type {
+            email email
+sms sms
+push_notification push notification
+        }
+    
 
-### Getting Started
 
-For specifics of installing and configuring a particular service, please refer to that service's documentation. The guide here is intended to show the general method for installing and configuring the services. We are going to utilize a fictional service, `@sourceloop/example-service`, as an example. All services load their environment configurations using `dotenv` and `dotenv-extended`.
+        models_protocol {
+            MB MB
+RS_485 RS 485
+DNP_3 DNP 3
+RS_232 RS 232
+        }
+    
 
-Install the Loopback4 CLI
 
-```bash
-npm install -g @loopback/cli
+        site-builder-images_type {
+            canvas_object canvas-object
+background_image background-image
+        }
+    
+
+
+        notifications_type {
+            Tag Tag
+Communication Communication
+        }
+    
+
+
+        alerts_type {
+            critical critical
+urgent urgent
+        }
+    
+
+
+        roles_type {
+            admin admin
+company company
+        }
+    
+
+
+        alerts_status {
+            open open
+acknowledged acknowledged
+completed completed
+        }
+    
+
+
+        communication_links_link_type {
+            poll poll
+satellite satellite
+active active
+        }
+    
+
+
+        activity_logs_communication_type {
+            Email Email
+Text Text
+Push_Notification Push Notification
+        }
+    
+
+
+        communication_links_simpli_link_type {
+            standalone standalone
+hub hub
+        }
+    
+
+
+        modbus_registers_data_type {
+            I I
+U U
+L L
+UL UL
+F F
+        }
+    
+
+
+        activity_logs_action {
+            add add
+delete delete
+update update
+login login
+log_out log out
+viewed viewed
+moved moved
+        }
+    
+
+
+        modbus_registers_alert_type {
+            override override
+inherit inherit
+        }
+    
+
+
+        activity_logs_activity_type {
+            communication communication
+gallery gallery
+area area
+group group
+modbusRegister modbusRegister
+plcDevice plcDevice
+role role
+route route
+site site
+userSitePermission userSitePermission
+user user
+report report
+notification notification
+deviceLink deviceLink
+alert alert
+        }
+    
+
+
+        modbus_registers_alarm_type {
+            lowAlarm lowAlarm
+highAlarm highAlarm
+lowLowAlarm lowLowAlarm
+highHighAlarm highHighAlarm
+        }
+    
+
+
+        plc_devices_protocol {
+            MB MB
+RS_485 RS 485
+RS_232 RS 232
+DNP_3 DNP 3
+        }
+    
+
+
+        communication_links_picture_resolution {
+            R640 640
+R320 320
+R160 160
+        }
+    
+
+
+        modbus_registers_type {
+            RR RR
+WR WR
+        }
+    
+  "activity_logs" {
+    Int id "🗝️"
+    String uuid 
+    activity_logs_type type 
+    activity_logs_user_type user_type 
+    String message 
+    activity_logs_communication_type communication_type "❓"
+    activity_logs_action action "❓"
+    activity_logs_activity_type activity_type "❓"
+    Int activity_entity_id "❓"
+    DateTime updated_at "❓"
+    DateTime deleted_at "❓"
+    DateTime created_at "❓"
+    }
+  
+
+  "alert_logs" {
+    Int id "🗝️"
+    String uuid 
+    alert_logs_action action "❓"
+    DateTime updated_at "❓"
+    DateTime deleted_at "❓"
+    DateTime created_at "❓"
+    }
+  
+
+  "alerts" {
+    Int id "🗝️"
+    String uuid 
+    String message 
+    Int device_id "❓"
+    alerts_type type 
+    alerts_status status 
+    DateTime completed_at "❓"
+    DateTime acknowledged_at "❓"
+    DateTime updated_at "❓"
+    DateTime deleted_at "❓"
+    DateTime created_at "❓"
+    }
+  
+
+  "areas" {
+    Int id "🗝️"
+    String uuid 
+    String name 
+    Decimal latitude "❓"
+    Decimal longitude "❓"
+    DateTime updated_at "❓"
+    DateTime deleted_at "❓"
+    DateTime created_at "❓"
+    }
+  
+
+  "auth_codes" {
+    Int id "🗝️"
+    String email 
+    String authorization_code 
+    DateTime created_at "❓"
+    }
+  
+
+  "categories" {
+    Int id "🗝️"
+    String uuid 
+    String name 
+    DateTime updated_at "❓"
+    DateTime deleted_at "❓"
+    DateTime created_at "❓"
+    }
+  
+
+  "communication_feeds" {
+    Int id "🗝️"
+    String uuid 
+    Int age "❓"
+    communication_feeds_reason reason "❓"
+    String image 
+    DateTime created_at "❓"
+    DateTime updated_at "❓"
+    DateTime deleted_at "❓"
+    }
+  
+
+  "communication_links" {
+    Int id "🗝️"
+    String uuid 
+    String password "❓"
+    Boolean password_reset_flag "❓"
+    DateTime reset_flag_expiry "❓"
+    String internal_serial_number "❓"
+    communication_links_link_type link_type 
+    communication_links_simpli_link_type simpli_link_type 
+    String name 
+    String firmware_version "❓"
+    String hardware_version "❓"
+    Int update_interval "❓"
+    Int picture_interval "❓"
+    communication_links_picture_resolution picture_resolution "❓"
+    Int motion_detection_interval "❓"
+    String cam "❓"
+    Boolean state "❓"
+    DateTime last_updated "❓"
+    DateTime created_at 
+    DateTime scan_at "❓"
+    DateTime updated_at "❓"
+    DateTime deleted_at "❓"
+    }
+  
+
+  "companies" {
+    Int id "🗝️"
+    String uuid "❓"
+    String name "❓"
+    String email 
+    String address "❓"
+    Boolean status 
+    DateTime created_at "❓"
+    Boolean assimilation_mode 
+    String logo "❓"
+    String timezone "❓"
+    DateTime updated_at "❓"
+    DateTime deleted_at "❓"
+    }
+  
+
+  "companies_has_users" {
+
+    }
+  
+
+  "company_contacts" {
+    Int id "🗝️"
+    String uuid "❓"
+    company_contacts_type type 
+    String name 
+    String phone 
+    String email 
+    DateTime created_at "❓"
+    DateTime updated_at "❓"
+    DateTime deleted_at "❓"
+    }
+  
+
+  "device_link_statuses" {
+    Int id "🗝️"
+    Boolean link_down "❓"
+    device_link_statuses_operation operation "❓"
+    DateTime created_at "❓"
+    DateTime updated_at "❓"
+    DateTime deleted_at "❓"
+    }
+  
+
+  "device_tokens" {
+    Int id "🗝️"
+    String device_token 
+    DateTime updated_at "❓"
+    DateTime deleted_at "❓"
+    DateTime created_at "❓"
+    }
+  
+
+  "email_templates" {
+    Int id "🗝️"
+    String label 
+    String subject 
+    String body 
+    email_templates_type type "❓"
+    DateTime created_at "❓"
+    }
+  
+
+  "gallery" {
+    Int id "🗝️"
+    String uuid 
+    String name 
+    String key 
+    String note "❓"
+    String uploaded_by 
+    DateTime created_at "❓"
+    DateTime updated_at "❓"
+    DateTime deleted_at "❓"
+    }
+  
+
+  "groups" {
+    Int id "🗝️"
+    String uuid 
+    String title 
+    DateTime created_at "❓"
+    DateTime updated_at "❓"
+    DateTime deleted_at "❓"
+    }
+  
+
+  "groups_has_notifications" {
+
+    }
+  
+
+  "manufacturers" {
+    Int id "🗝️"
+    String uuid 
+    String name 
+    DateTime updated_at "❓"
+    DateTime deleted_at "❓"
+    DateTime created_at "❓"
+    }
+  
+
+  "modbus_registers" {
+    Int id "🗝️"
+    String uuid 
+    Int address 
+    String name "❓"
+    modbus_registers_data_type data_type "❓"
+    modbus_registers_alert_type alert_type "❓"
+    modbus_registers_alarm_type alarm_type "❓"
+    String value "❓"
+    Float low_alarm "❓"
+    Float high_alarm "❓"
+    Float low_low_alarm "❓"
+    Float high_high_alarm "❓"
+    modbus_registers_type type 
+    Int delay "❓"
+    Int duration "❓"
+    Int reset_value "❓"
+    DateTime last_seen "❓"
+    String current_value "❓"
+    String toggle_value "❓"
+    DateTime created_at 
+    String clonedUuid "❓"
+    DateTime updated_at "❓"
+    DateTime deleted_at "❓"
+    }
+  
+
+  "modbus_registers_has_notifications" {
+
+    }
+  
+
+  "models" {
+    Int id "🗝️"
+    String uuid 
+    String name 
+    models_protocol protocol 
+    DateTime updated_at "❓"
+    DateTime deleted_at "❓"
+    DateTime created_at "❓"
+    }
+  
+
+  "notifications" {
+    Int id "🗝️"
+    String uuid 
+    String name 
+    notifications_type type 
+    Json methods 
+    Json triggers 
+    Json monitored_items 
+    Boolean status "❓"
+    DateTime created_at 
+    DateTime updated_at "❓"
+    DateTime deleted_at "❓"
+    }
+  
+
+  "permissions" {
+    Int id "🗝️"
+    String name "❓"
+    permissions_scope scope 
+    DateTime created_at "❓"
+    DateTime updated_at "❓"
+    DateTime deleted_at "❓"
+    }
+  
+
+  "plc_devices" {
+    Int id "🗝️"
+    String uuid 
+    String slave_ip "❓"
+    Int slave_id "❓"
+    String name "❓"
+    plc_devices_protocol protocol 
+    Int scan_interval "❓"
+    Int report_interval "❓"
+    Int control_interval "❓"
+    Int alarm_control "❓"
+    Int link_down_scan_interval "❓"
+    Int link_down_report_interval "❓"
+    Int link_down_link_status_report_interval "❓"
+    Int device_offset "❓"
+    String status "❓"
+    DateTime last_seen "❓"
+    DateTime created_at 
+    DateTime scan_at "❓"
+    Boolean is_scanning 
+    DateTime updated_at "❓"
+    DateTime deleted_at "❓"
+    }
+  
+
+  "roles" {
+    Int id "🗝️"
+    String uuid 
+    String title 
+    Int active 
+    Int editable 
+    Int companies_id "❓"
+    roles_type type "❓"
+    DateTime created_at "❓"
+    DateTime updated_at "❓"
+    DateTime deleted_at "❓"
+    }
+  
+
+  "roles_has_permissions" {
+    Boolean can_see "❓"
+    Boolean add "❓"
+    Boolean update "❓"
+    Boolean archive "❓"
+    }
+  
+
+  "routes" {
+    Int id "🗝️"
+    String uuid 
+    String name 
+    DateTime created_at "❓"
+    DateTime updated_at "❓"
+    DateTime deleted_at "❓"
+    }
+  
+
+  "sensor_types" {
+    Int id "🗝️"
+    String uuid 
+    String name 
+    DateTime created_at "❓"
+    DateTime updated_at "❓"
+    DateTime deleted_at "❓"
+    }
+  
+
+  "site-builder-images" {
+    Int id "🗝️"
+    String uuid 
+    String name 
+    String key 
+    site_builder_images_type type 
+    DateTime created_at "❓"
+    DateTime updated_at "❓"
+    DateTime deleted_at "❓"
+    }
+  
+
+  "sites" {
+    Int id "🗝️"
+    String uuid 
+    String name 
+    Decimal latitude "❓"
+    Decimal longitude "❓"
+    String address "❓"
+    String picture "❓"
+    String notes "❓"
+    DateTime created_at "❓"
+    DateTime updated_at "❓"
+    DateTime deleted_at "❓"
+    }
+  
+
+  "users" {
+    Int id "🗝️"
+    String uuid 
+    String first_name 
+    String last_name 
+    String email 
+    String password "❓"
+    String country_code "❓"
+    String phone "❓"
+    String forgot_token "❓"
+    Boolean force_logout "❓"
+    Boolean force_2fa "❓"
+    String profile_picture "❓"
+    String timezone "❓"
+    DateTime created_at "❓"
+    DateTime updated_at "❓"
+    DateTime deleted_at "❓"
+    }
+  
+
+  "users_has_groups" {
+
+    }
+  
+
+  "users_has_notifications" {
+
+    }
+  
+
+  "users_sites_permissions" {
+    Int id "🗝️"
+    users_sites_permissions_permission_type permission_type 
+    Int permission_type_id 
+    Boolean view "❓"
+    Boolean manage "❓"
+    Boolean control "❓"
+    DateTime created_at "❓"
+    DateTime updated_at "❓"
+    }
+  
+    "activity_logs" o|--|| "activity_logs_type" : "enum:type"
+    "activity_logs" o|--|| "activity_logs_user_type" : "enum:user_type"
+    "activity_logs" o|--|o "activity_logs_communication_type" : "enum:communication_type"
+    "activity_logs" o|--|o "activity_logs_action" : "enum:action"
+    "activity_logs" o|--|o "activity_logs_activity_type" : "enum:activity_type"
+    "activity_logs" o|--|o "sites" : "sites"
+    "activity_logs" o|--|o "companies" : "companies"
+    "activity_logs" o|--|o "users" : "users"
+    "alert_logs" o|--|o "alert_logs_action" : "enum:action"
+    "alert_logs" o|--|o "alerts" : "alerts"
+    "alert_logs" o|--|o "users" : "users"
+    "alerts" o|--|| "alerts_type" : "enum:type"
+    "alerts" o|--|| "alerts_status" : "enum:status"
+    "alerts" o{--}o "alert_logs" : "alert_logs"
+    "alerts" o|--|o "users" : "users_alerts_acknowleged_byTousers"
+    "alerts" o|--|| "sites" : "sites"
+    "alerts" o|--|o "users" : "users_alerts_completed_byTousers"
+    "alerts" o|--|o "modbus_registers" : "modbus_registers"
+    "areas" o|--|| "companies" : "companies"
+    "areas" o{--}o "routes" : "routes"
+    "areas" o{--}o "sites" : "sites"
+    "categories" o|--|o "sensor_types" : "sensor_types"
+    "categories" o{--}o "modbus_registers" : "modbus_registers"
+    "communication_feeds" o|--|o "communication_feeds_reason" : "enum:reason"
+    "communication_feeds" o|--|o "communication_links" : "communication_links"
+    "communication_links" o|--|| "communication_links_link_type" : "enum:link_type"
+    "communication_links" o|--|| "communication_links_simpli_link_type" : "enum:simpli_link_type"
+    "communication_links" o|--|o "communication_links_picture_resolution" : "enum:picture_resolution"
+    "communication_links" o{--}o "communication_feeds" : "communication_feeds"
+    "communication_links" o|--|o "companies" : "companies"
+    "communication_links" o{--}o "plc_devices" : "plc_devices"
+    "communication_links" o{--}o "sites" : "sites"
+    "companies" o{--}o "activity_logs" : "activity_logs"
+    "companies" o{--}o "areas" : "areas"
+    "companies" o{--}o "communication_links" : "communication_links"
+    "companies" o|--|| "users" : "users"
+    "companies" o{--}o "companies_has_users" : "companies_has_users"
+    "companies" o{--}o "company_contacts" : "company_contacts"
+    "companies" o{--}o "groups" : "groups"
+    "companies" o{--}o "notifications" : "notifications"
+    "companies" o{--}o "plc_devices" : "plc_devices"
+    "companies" o{--}o "routes" : "routes"
+    "companies" o{--}o "site-builder-images" : "site_builder_images"
+    "companies" o{--}o "sites" : "sites"
+    "companies_has_users" o|--|| "companies" : "companies"
+    "companies_has_users" o|--|| "users" : "users"
+    "company_contacts" o|--|| "company_contacts_type" : "enum:type"
+    "company_contacts" o|--|o "companies" : "companies"
+    "device_link_statuses" o|--|o "device_link_statuses_operation" : "enum:operation"
+    "device_link_statuses" o|--|| "plc_devices" : "plc_devices"
+    "device_tokens" o|--|| "users" : "users"
+    "email_templates" o|--|o "email_templates_type" : "enum:type"
+    "gallery" o|--|o "sites" : "sites"
+    "groups" o|--|| "companies" : "companies"
+    "groups" o{--}o "groups_has_notifications" : "groups_has_notifications"
+    "groups" o{--}o "users_has_groups" : "users_has_groups"
+    "groups_has_notifications" o|--|| "groups" : "groups"
+    "groups_has_notifications" o|--|| "notifications" : "notifications"
+    "manufacturers" o{--}o "models" : "models"
+    "manufacturers" o{--}o "plc_devices" : "plc_devices"
+    "modbus_registers" o|--|o "modbus_registers_data_type" : "enum:data_type"
+    "modbus_registers" o|--|o "modbus_registers_alert_type" : "enum:alert_type"
+    "modbus_registers" o|--|o "modbus_registers_alarm_type" : "enum:alarm_type"
+    "modbus_registers" o|--|| "modbus_registers_type" : "enum:type"
+    "modbus_registers" o{--}o "alerts" : "alerts"
+    "modbus_registers" o|--|o "sensor_types" : "sensor_types"
+    "modbus_registers" o|--|| "plc_devices" : "plc_devices"
+    "modbus_registers" o|--|o "modbus_registers" : "modbus_registers"
+    "modbus_registers" o{--}o "modbus_registers" : "other_modbus_registers"
+    "modbus_registers" o|--|o "categories" : "categories"
+    "modbus_registers" o{--}o "modbus_registers_has_notifications" : "modbus_registers_has_notifications"
+    "modbus_registers_has_notifications" o|--|| "notifications" : "notifications"
+    "modbus_registers_has_notifications" o|--|| "modbus_registers" : "modbus_registers"
+    "models" o|--|| "models_protocol" : "enum:protocol"
+    "models" o|--|| "manufacturers" : "manufacturers"
+    "models" o{--}o "plc_devices" : "plc_devices"
+    "notifications" o|--|| "notifications_type" : "enum:type"
+    "notifications" o{--}o "groups_has_notifications" : "groups_has_notifications"
+    "notifications" o{--}o "modbus_registers_has_notifications" : "modbus_registers_has_notifications"
+    "notifications" o|--|o "users" : "users"
+    "notifications" o|--|o "companies" : "companies"
+    "notifications" o{--}o "users_has_notifications" : "users_has_notifications"
+    "permissions" o|--|| "permissions_scope" : "enum:scope"
+    "permissions" o|--|o "permissions" : "permissions"
+    "permissions" o{--}o "permissions" : "other_permissions"
+    "permissions" o{--}o "roles_has_permissions" : "roles_has_permissions"
+    "plc_devices" o|--|| "plc_devices_protocol" : "enum:protocol"
+    "plc_devices" o{--}o "device_link_statuses" : "device_link_statuses"
+    "plc_devices" o{--}o "modbus_registers" : "modbus_registers"
+    "plc_devices" o|--|o "sites" : "sites"
+    "plc_devices" o|--|o "models" : "models"
+    "plc_devices" o|--|| "companies" : "companies"
+    "plc_devices" o|--|o "communication_links" : "communication_links"
+    "plc_devices" o|--|o "manufacturers" : "manufacturers"
+    "roles" o|--|o "roles_type" : "enum:type"
+    "roles" o{--}o "roles_has_permissions" : "roles_has_permissions"
+    "roles" o{--}o "users" : "users"
+    "roles_has_permissions" o|--|| "permissions" : "permissions"
+    "roles_has_permissions" o|--|| "roles" : "roles"
+    "routes" o|--|| "companies" : "companies"
+    "routes" o|--|| "areas" : "areas"
+    "routes" o{--}o "sites" : "sites"
+    "sensor_types" o{--}o "categories" : "categories"
+    "sensor_types" o{--}o "modbus_registers" : "modbus_registers"
+    "site-builder-images" o|--|| "site_builder_images_type" : "enum:type"
+    "site-builder-images" o|--|o "companies" : "companies"
+    "site-builder-images" o|--|o "users" : "users"
+    "sites" o{--}o "activity_logs" : "activity_logs"
+    "sites" o{--}o "alerts" : "alerts"
+    "sites" o{--}o "gallery" : "gallery"
+    "sites" o{--}o "plc_devices" : "plc_devices"
+    "sites" o|--|o "routes" : "routes"
+    "sites" o|--|o "communication_links" : "communication_links"
+    "sites" o|--|| "areas" : "areas"
+    "sites" o|--|| "companies" : "companies"
+    "users" o{--}o "activity_logs" : "activity_logs"
+    "users" o{--}o "alert_logs" : "alert_logs"
+    "users" o{--}o "alerts" : "alerts_alerts_acknowleged_byTousers"
+    "users" o{--}o "alerts" : "alerts_alerts_completed_byTousers"
+    "users" o{--}o "companies" : "companies"
+    "users" o{--}o "companies_has_users" : "companies_has_users"
+    "users" o{--}o "device_tokens" : "device_tokens"
+    "users" o{--}o "notifications" : "notifications"
+    "users" o{--}o "site-builder-images" : "site_builder_images"
+    "users" o|--|| "roles" : "roles"
+    "users" o{--}o "users_has_groups" : "users_has_groups"
+    "users" o{--}o "users_has_notifications" : "users_has_notifications"
+    "users" o{--}o "users_sites_permissions" : "users_sites_permissions"
+    "users_has_groups" o|--|| "users" : "users"
+    "users_has_groups" o|--|| "groups" : "groups"
+    "users_has_notifications" o|--|| "users" : "users"
+    "users_has_notifications" o|--|| "notifications" : "notifications"
+    "users_sites_permissions" o|--|| "users_sites_permissions_permission_type" : "enum:permission_type"
+    "users_sites_permissions" o|--|| "users" : "users"
 ```
-
-Generate an application (If you don't have one already).
-
-```bash
-lb4 app
-? Project name: example-application
-? Project description: Example Application For SourceLoop
-? Project root directory: example-application
-? Application class name: ExampleApplicationApplication
-? Select features to enable in the project Enable eslint, Enable prettier, Enable mocha, Enable loopbackBuild, Enable vs
-code, Enable docker, Enable repositories, Enable services
-    force .yo-rc.json
-   create .eslintignore
-   create .eslintrc.js
-   create .mocharc.json
-   create .npmrc
-   create .prettierignore
-   create .prettierrc
-   create DEVELOPING.md
-   create package.json
-   create tsconfig.json
-   create .vscode\launch.json
-   create .vscode\settings.json
-   create .vscode\tasks.json
-   create .gitignore
-   create .dockerignore
-   create Dockerfile
-   create README.md
-   create public\index.html
-   create src\application.ts
-   create src\index.ts
-   create src\migrate.ts
-   create src\openapi-spec.ts
-   create src\sequence.ts
-   create src\controllers\index.ts
-   create src\controllers\ping.controller.ts
-   create src\controllers\README.md
-   create src\datasources\README.md
-   create src\models\README.md
-   create src\repositories\README.md
-   create src\__tests__\README.md
-   create src\__tests__\acceptance\home-page.acceptance.ts
-   create src\__tests__\acceptance\ping.controller.acceptance.ts
-   create src\__tests__\acceptance\test-helper.ts
-npm WARN deprecated debug@4.2.0: Debug versions >=3.2.0 <3.2.7 || >=4 <4.3.1 have a low-severity ReDos regression when used in a Node.js environment. It is recommended you upgrade to 3.2.7 or 4.3.1. (https://github.com/visionmedia/debug/issues/797)
-npm WARN deprecated fsevents@2.1.3: "Please update to latest v2.3 or v2.2"
-npm notice created a lockfile as package-lock.json. You should commit this file.
-npm WARN optional SKIPPING OPTIONAL DEPENDENCY: fsevents@~2.1.2 (node_modules\chokidar\node_modules\fsevents):
-npm WARN notsup SKIPPING OPTIONAL DEPENDENCY: Unsupported platform for fsevents@2.1.3: wanted {"os":"darwin","arch":"any"} (current: {"os":"win32","arch":"x64"})
-npm WARN example-application@0.0.1 No license field.
-
-added 637 packages from 816 contributors and audited 646 packages in 16.345s
-
-87 packages are looking for funding
-  run `npm fund` for details
-
-found 0 vulnerabilities
-
-
-Application example-application was created in example-application.
-
-Next steps:
-
-$ cd example-application
-$ npm start
-```
-
-Install `dotenv`, `dotenv-extended` and `@sourceloop/example-service`.
-
-```bash
-cd example-application
-npm i --save dotenv dotenv-extended @sourceloop/example-service
-touch .env.example
-```
-
-Update `src/application.ts` to use the new service component and the environment variables. You may also need to bind configurations depending on the service component you are using. You find these configurations in the individual README of the service.
-
-```typescript
-import {BootMixin} from '@loopback/boot';
-import {ApplicationConfig} from '@loopback/core';
-import {
-  RestExplorerBindings,
-  RestExplorerComponent,
-} from '@loopback/rest-explorer';
-import {RepositoryMixin} from '@loopback/repository';
-import {RestApplication} from '@loopback/rest';
-import {ServiceMixin} from '@loopback/service-proxy';
-import path from 'path';
-import {MySequence} from './sequence';
-
-import {ExampleServiceComponent} from '@sourceloop/example-service';
-import * as dotenv from 'dotenv';
-import * as dotenvExt from 'dotenv-extended';
-
-export {ApplicationConfig};
-
-const port = 3000;
-export class ExampleApplicationApplication extends BootMixin(
-  ServiceMixin(RepositoryMixin(RestApplication)),
-) {
-  constructor(options: ApplicationConfig = {}) {
-    dotenv.config();
-    dotenvExt.load({
-      schema: '.env.example',
-      errorOnMissing: true,
-      includeProcessEnv: true,
-    });
-    options.rest = options.rest || {};
-    options.rest.port = +(process.env.PORT ?? port);
-    options.rest.host = process.env.HOST;
-    super(options);
-
-    // Set up the custom sequence
-    this.sequence(MySequence);
-
-    // Set up default home page
-    this.static('/', path.join(__dirname, '../public'));
-
-    // Customize @loopback/rest-explorer configuration here
-    this.configure(RestExplorerBindings.COMPONENT).to({
-      path: '/explorer',
-    });
-    this.component(RestExplorerComponent);
-    this.component(ExampleServiceComponent); // OUR EXAMPLE SERVICE COMPONENT
-
-    this.projectRoot = __dirname;
-    // Customize @loopback/boot Booter Conventions here
-    this.bootOptions = {
-      controllers: {
-        // Customize ControllerBooter Conventions here
-        dirs: ['controllers'],
-        extensions: ['.controller.js'],
-        nested: true,
-      },
-    };
-  }
-}
-```
-
-Modify the environment variable file to have the following contents:
-
-```
-NODE_ENV=dev
-```
-
-You can now run the example service with `npm start`.
-
-### Config Hidden APIs
-
-Update `src/application.ts` of each service to use the new hidden api feature. Add the following lines
-
-```typescript
-import {OperationSpecEnhancer} from './enhancer/operationSpecEnhancer';
-import {OASBindings} from './keys';
-import {HttpMethod} from './enums/http-oas.enum';
-
-export class ExampleApplicationApplication extends BootMixin(
-  ServiceMixin(RepositoryMixin(RestApplication)),
-) {
-  constructor(options: ApplicationConfig = {}) {
-    super(options);
-
-    // Set up the custom sequence
-    this.sequence(MySequence);
-
-    // Set up default home page
-    this.static('/', path.join(__dirname, '../public'));
-
-    // Customize @loopback/rest-explorer configuration here
-    this.configure(RestExplorerBindings.COMPONENT).to({
-      path: '/explorer',
-    });
-    this.component(RestExplorerComponent);
-
-    // Bind OASBinding namespace to hide APIs
-    this.bind(OASBindings.HiddenEndpoint).to([
-      {httpMethod: HttpMethod.GET, path: '/ping'},
-      {httpMethod: HttpMethod.POST, path: '/customers/{id}/users'},
-      {httpMethod: HttpMethod.PUT, path: '/roles/{id}'},
-    ]);
-
-    this.projectRoot = __dirname;
-    // Customize @loopback/boot Booter Conventions here
-    this.bootOptions = {
-      controllers: {
-        // Customize ControllerBooter Conventions here
-        dirs: ['controllers'],
-        extensions: ['.controller.js'],
-        nested: true,
-      },
-    };
-  }
-}
-```
-
-### DataSources and Migrations
-
-The `Sourceloop` can support any Loopback 4 [DataSource](https://loopback.io/doc/en/lb4/DataSource.html). While you may see existing `DataSources`, it is not mandatory to use them.
-
-The migrations required for this service are processed during the installation automatically if you set the `SOURCELOOP_MIGRATION` env variable. The migrations use [`db-migrate`](https://www.npmjs.com/package/db-migrate) with [`db-migrate-pg`](https://www.npmjs.com/package/db-migrate-pg) driver for migrations, so you will have to install these packages to use auto-migration. Please note that if you are using some pre-existing migrations or databases, they may be affected. In such a scenario, it is advised that you copy the migration files in your project root, using the `SOURCELOOP_MIGRATION_COPY` env variables. You can customize or cherry-pick the migrations in the copied files according to your specific requirements and then apply them to the DB.
-
-### Production Deployment
-
-Inside of the `sandbox` folder, you will find example applications and Dockerfiles for each application. The `Sourceloop` is agnostic of the Docker deployment strategy. Deploy the services into the platform of your choice.
-
-## Sandbox
-
-`sandbox` folder contains example applications and docker files that can be run independently to see the services in action. You can use [Docker Compose](https://docs.docker.com/compose/) to run the sandbox applications.
-
-## Sourceloop CLI
-
-The Sourceloop CLI is a command-line interface tool that one use to initialize, develop, scaffold, and maintain sourceloop applications directly from a command shell. Learn more about [Sourceloop CLI](packages/cli/README.md).
-
-### Related Projects
-
-The `Sourceloop` utilizes many extensions created by SourceFuse.
-
-- [sourcefuse/loopback4-ratelimiter: A rate limiting extension for loopback4 applications (github.com)](https://github.com/sourcefuse/loopback4-ratelimiter)
-- [sourcefuse/loopback4-notifications: An extension for setting up various notification mechanisms in loopback4 application, vis-a-vis, Push notification, SMS notification, Email notification (github.com)](https://github.com/sourcefuse/loopback4-notifications)
-- [sourcefuse/loopback4-s3: A loopback4 extension for AWS S3 integration (github.com)](https://github.com/sourcefuse/loopback4-s3)
-- [sourcefuse/loopback4-audit-log: A loopback-next extension for implementing audit logs in loopback applications for all DB transactions. (github.com)](https://github.com/sourcefuse/loopback4-audit-log)
-- [sourcefuse/loopback4-soft-delete: A loopback4 extension for soft delete feature (github.com)](https://github.com/sourcefuse/loopback4-soft-delete)
-- [sourcefuse/loopback4-authentication: A loopback-next extension for authentication feature. Oauth strategies supported. (github.com)](https://github.com/sourcefuse/loopback4-authentication)
-- [sourcefuse/loopback4-authorization: An authorization extension for loopback4 applications (github.com)](https://github.com/sourcefuse/loopback4-authorization)
-- [sourcefuse/loopback4-helmet: A loopback4 extension for helmetjs integration (github.com)](https://github.com/sourcefuse/loopback4-helmet)
-- [sourcefuse/loopback4-vault: A loopback-next extension for HashiCorp's Vault integration in loopback-next applications (github.com)](https://github.com/sourcefuse/loopback4-vault)
-- [sourcefuse/loopback4-kafka-client: A Kafka Client for Loopback4 built on top of KafkaJS (github.com)](https://github.com/sourcefuse/loopback4-kafka-client)
-- [sourcefuse/loopback4-dynamic-datasource: A loopback 4 extension to connect to dynamic data sources runtime while maintaining old connections (github.com)](https://github.com/sourcefuse/loopback4-dynamic-datasource)
-- [sourcefuse/loopback4-sequelize: A Loopback 4 Extension that provides Sequelize query builder at repository level (github.com)](https://github.com/sourcefuse/loopback4-sequelize)
-
-### Feedback
-
-If you've noticed a bug or have a question or have a feature request, [search the issue tracker]([Issues · sourcefuse/loopback4-microservices-catalog · GitHub](https://github.com/sourcefuse/loopback4-microservice-catalog/issues)) to see if someone else in the community has already created a ticket. If not, go ahead and [make one](https://github.com/sourcefuse/loopback4-microservice-catalog/issues/new/choose)! All feature requests are welcome. Implementation time may vary. Feel free to contribute the same, if you can. If you think this extension is useful, please [star](https://help.github.com/en/articles/about-stars) it. Appreciation really helps in keeping this project alive.
-
-### Contributing
-
-- [Development Guidelines](https://github.com/sourcefuse/loopback4-microservice-catalog/blob/master/DEVELOPING.md)
-
-### Code of Conduct
-
-Code of conduct guidelines [here.](CODE_OF_CONDUCT.md)
-
-### License
-
-[MIT](LICENSE)
-
-<!-- docs-index-end -->
